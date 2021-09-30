@@ -30,7 +30,7 @@ func _physics_process(_delta):
 	if x_dir != 0:
 		velocity.x = clamp(velocity.x + (x_dir * acceleration), -speed_limit, speed_limit)
 	else:
-		velocity.x = velocity.x - (velocity.x * friction_weight) if abs(velocity.x) > 1 else 0
+		velocity.x = velocity.x - (velocity.x * friction_weight) if abs(velocity.x) > 1.0 else 0.0
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y -= jump_speed
