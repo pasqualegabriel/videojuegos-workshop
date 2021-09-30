@@ -8,7 +8,6 @@ var container
 
 func _ready():
 	add_to_group("turret")
-	fire_timer.start()
 
 func initialize(_container):
 	container = _container
@@ -18,6 +17,20 @@ func _on_FireTimer_timeout():
 
 func fire():
 	var proj = projectile.instance()
-	proj.initialize(get_parent(), global_position, global_position.direction_to(get_parent().player.global_position))
+	proj.initialize(get_parent(), global_position, global_position.direction_to(get_parent().player.global_position), false)
 	fire_timer.start()
 
+func hit():
+	call_deferred('bye')
+	
+func bye():
+	get_parent().remove_child(self)
+	queue_free()
+	
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("player"):
+		fire_timer.start()
+
+func _on_Area2D_body_exited(body):
+	if body.is_in_group("player"):
+		fire_timer.stop()

@@ -40,8 +40,9 @@ func _physics_process(_delta):
 	
 func fire():
 	var proj = projectile.instance()
-	proj.initialize(get_parent(), cannon.global_position, global_position.direction_to(fire_pos.global_position))
-	
+	proj.initialize(get_parent(), cannon.global_position, global_position.direction_to(fire_pos.global_position), true)
+
+
 #	var x_dir = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 #	position.x += x_dir * velocity * delta
 #	var y_dir = int(Input.is_action_pressed("down")) - int(Input.is_action_pressed("up"))
