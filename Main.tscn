@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://assets/background/floor.png" type="Texture" id=1]
 [ext_resource path="res://assets/background/background.png" type="Texture" id=2]
 [ext_resource path="res://entities/player/Player.tscn" type="PackedScene" id=3]
 [ext_resource path="res://entities/enemies/Turret.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Main.gd" type="Script" id=5]
+[ext_resource path="res://enviroment/TileMap.tscn" type="PackedScene" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 33.3261, 32.8583 )
@@ -16,6 +17,9 @@ script = ExtResource( 5 )
 position = Vector2( 522.197, 303.564 )
 scale = Vector2( 1.35528, 1.10371 )
 texture = ExtResource( 2 )
+
+[node name="TileMap" parent="." instance=ExtResource( 6 )]
+tile_data = PoolIntArray(  )
 
 [node name="Floor" type="StaticBody2D" parent="."]
 position = Vector2( 521.356, 538.492 )
