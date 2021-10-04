@@ -47,9 +47,6 @@ polygon = PoolVector2Array( 0, 96, 0, 0, 128, 0, 128, 128, 32, 128, 24.0698, 106
 [sub_resource type="OccluderPolygon2D" id=15]
 polygon = PoolVector2Array( 32, 0, 128, 0, 128, 128, 0, 128, 0, 32 )
 
-[sub_resource type="ConvexPolygonShape2D" id=16]
-points = PoolVector2Array( 128, 128, 0, 128, 0, 20.8106, 128, 20.8106 )
-
 [sub_resource type="ConvexPolygonShape2D" id=17]
 points = PoolVector2Array( 0, 0, 96, 0, 96, 128, 0, 128 )
 
@@ -87,10 +84,13 @@ points = PoolVector2Array( 0, 0, 0, 0, 96, 0, 128, 32, 128, 128, 32, 128, 0, 96 
 points = PoolVector2Array( 128, 0, 128, 0, 128, 96, 96, 128, 0, 128, 0, 32, 32, 0, 128, 0 )
 
 [sub_resource type="ConvexPolygonShape2D" id=29]
-points = PoolVector2Array( 128, 20.8106, 128, 128, 32, 128, 32, 64, 32.6995, 44.7, 33.2018, 32.532, 37.5555, 20.4757, 63.3426, 20.1408, 98.5069, 20.4757 )
+points = PoolVector2Array( 128, 128, 32, 128, 32, 16, 128, 16 )
 
 [sub_resource type="ConvexPolygonShape2D" id=30]
-points = PoolVector2Array( 26.7008, 21.1455, 62.8698, 21.4804, 87.9871, 21.4804, 93.6803, 36.2159, 96, 64, 96, 128, 0, 128, 0, 21.1455 )
+points = PoolVector2Array( 128, 128, 0, 128, 0, 16, 128, 16 )
+
+[sub_resource type="ConvexPolygonShape2D" id=31]
+points = PoolVector2Array( 96, 128, 0, 128, 0, 16, 96, 16 )
 
 [resource]
 0/name = "Mossy - TileSet.png 0"
@@ -112,16 +112,10 @@ points = PoolVector2Array( 26.7008, 21.1455, 62.8698, 21.4804, 87.9871, 21.4804,
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
 0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
-0/shape = SubResource( 16 )
+0/shape = SubResource( 17 )
 0/shape_one_way = false
 0/shape_one_way_margin = 1.0
 0/shapes = [ {
-"autotile_coord": Vector2( 1, 0 ),
-"one_way": false,
-"one_way_margin": 1.0,
-"shape": SubResource( 16 ),
-"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
-}, {
 "autotile_coord": Vector2( 2, 1 ),
 "one_way": false,
 "one_way_margin": 1.0,
@@ -200,10 +194,16 @@ points = PoolVector2Array( 26.7008, 21.1455, 62.8698, 21.4804, 87.9871, 21.4804,
 "shape": SubResource( 29 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 }, {
-"autotile_coord": Vector2( 2, 0 ),
+"autotile_coord": Vector2( 1, 0 ),
 "one_way": false,
 "one_way_margin": 1.0,
 "shape": SubResource( 30 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 2, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 31 ),
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 0/z_index = 0
