@@ -19,7 +19,7 @@ func _physics_process(delta):
 
 func _on_Projectile_body_entered(body):
 	if body.is_in_group("player") and !is_player_projectile:
-		print('player hit')
+		body.hit()
 		remove()
 	if body.is_in_group("turret") and is_player_projectile:
 		body.hit()

@@ -9,3 +9,6 @@ func _ready():
 func _on_Limit_body_entered(body):
 	if body.is_in_group("player"):
 		body.to_start_position()
+
+func _on_AudioStreamPlayer2D_finished():
+	$AudioStreamPlayer2D.play()

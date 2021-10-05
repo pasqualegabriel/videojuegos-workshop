@@ -6,6 +6,7 @@ onready var body = $Body
 onready var cannon = $Cannon
 onready var fire_pos = $Cannon/FirePosition
 onready var animation_player = $AnimationPlayer
+onready var audio = $AudioPlayer
 
 var velocity:Vector2 = Vector2.ZERO
 var floor_normal:Vector2 = Vector2.UP
@@ -25,6 +26,7 @@ func initialize(_container):
 
 func handle_input():
 	if Input.is_action_just_pressed("fire"):
+		audio.attack()
 		fire()
 	
 	var x_dir = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
@@ -35,6 +37,11 @@ func handle_input():
 		
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y -= jump_speed
+		animation_player.play("jump")
+	elif is_on_floor() and x_dir != 0:
+		animation_player.play("walk")
+	elif is_on_floor() and x_dir == 0:
+		animation_player.play("idle")
 		
 	return x_dir
 		
@@ -45,13 +52,6 @@ func handle_animation(x_dir):
 	elif x_dir > 0:
 		body.flip_h = false
 		body.offset.x = 50
-		
-	if !is_on_floor():
-		animation_player.play("jump")
-	elif is_on_floor() and x_dir != 0:
-		animation_player.play("walk")
-	else:
-		animation_player.play("idle")
 
 func _physics_process(_delta):
 	cannon.look_at(get_global_mouse_position())
@@ -68,6 +68,9 @@ func fire():
 
 func to_start_position():
 	global_position = container.start_position.global_position
+	
+func hit():
+	audio.hit()
 
 #	var x_dir = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 #	position.x += x_dir * velocity * delta
