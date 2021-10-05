@@ -6,6 +6,7 @@ onready var body = $Body
 onready var cannon = $Cannon
 onready var fire_pos = $Cannon/FirePosition
 onready var animation_player = $AnimationPlayer
+onready var effect_player = $EffectPlayer
 onready var audio = $AudioPlayer
 
 var velocity:Vector2 = Vector2.ZERO
@@ -70,7 +71,8 @@ func to_start_position():
 	global_position = container.start_position.global_position
 	
 func hit():
-	audio.hit()
+	effect_player.play("hit")
+#	yield(body.animation2, "animation_finished")
 
 #	var x_dir = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 #	position.x += x_dir * velocity * delta

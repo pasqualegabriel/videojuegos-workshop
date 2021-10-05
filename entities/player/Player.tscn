@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://entities/player/Player.gd" type="Script" id=1]
 [ext_resource path="res://assets/player/girl_spritesheet.png" type="Texture" id=2]
@@ -6,7 +6,9 @@
 [ext_resource path="res://entities/player/PlayerProjectile.tscn" type="PackedScene" id=4]
 [ext_resource path="res://sounds/Jump.ogg" type="AudioStream" id=5]
 [ext_resource path="res://entities/player/Jump.gd" type="Script" id=6]
-[ext_resource path="res://sounds/Leaves1.ogg" type="AudioStream" id=7]
+[ext_resource path="res://sounds/playerHurt.wav" type="AudioStream" id=7]
+[ext_resource path="res://sounds/Leaves1.ogg" type="AudioStream" id=8]
+[ext_resource path="res://entities/player/HitPlayer.gd" type="Script" id=9]
 
 [sub_resource type="CapsuleShape2D" id=1]
 height = 59.5
@@ -82,13 +84,43 @@ tracks/1/keys = {
 "clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
-"stream": ExtResource( 7 )
+"stream": ExtResource( 8 )
 }, {
+"end_offset": 0.0,
+"start_offset": 0.0,
+"stream": ExtResource( 8 )
+} ],
+"times": PoolRealArray( 0, 0.6 )
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "hit"
+step = 0.05
+tracks/0/type = "value"
+tracks/0/path = NodePath("Body:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.25, 0.5, 0.75, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
+}
+tracks/1/type = "audio"
+tracks/1/path = NodePath("HitPlayer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"clips": [ {
 "end_offset": 0.0,
 "start_offset": 0.0,
 "stream": ExtResource( 7 )
 } ],
-"times": PoolRealArray( 0, 0.6 )
+"times": PoolRealArray( 0 )
 }
 
 [node name="Player" type="KinematicBody2D"]
@@ -127,3 +159,10 @@ stream = ExtResource( 7 )
 volume_db = -20.0
 bus = "Sorround"
 script = ExtResource( 6 )
+
+[node name="EffectPlayer" type="AnimationPlayer" parent="."]
+anims/hit = SubResource( 5 )
+
+[node name="HitPlayer" type="AudioStreamPlayer" parent="."]
+volume_db = -5.0
+script = ExtResource( 9 )

@@ -9,10 +9,6 @@ func _ready():
 	jump_audio.loop = false
 	walk_audio.loop = false
 	attack_audio.loop = false
-	
-func hit():
-	self.stream = hit_audio
-	self.play()
 
 func attack():
 	self.stream = attack_audio
