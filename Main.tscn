@@ -29,13 +29,13 @@ position = Vector2( -122.08, 492.133 )
 position = Vector2( 318.413, 290.8 )
 
 [node name="Turret2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2188.3, 182.922 )
+position = Vector2( 2220.34, 156.225 )
 
 [node name="Turret3" parent="." instance=ExtResource( 4 )]
-position = Vector2( 980.665, 302.787 )
+position = Vector2( 1023.38, 230.706 )
 
 [node name="Turret4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 2985.4, 326.76 )
+position = Vector2( 3257.71, 334.769 )
 
 [node name="StartPosition" type="Position2D" parent="."]
 position = Vector2( -21.1893, 434.38 )
