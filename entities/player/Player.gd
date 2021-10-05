@@ -72,7 +72,8 @@ func to_start_position():
 	
 func hit():
 	effect_player.play("hit")
-#	yield(body.animation2, "animation_finished")
+	container.menu.hit()
+#	yield(effect_player, "animation_finished")
 
 #	var x_dir = int(Input.is_action_pressed("right")) - int(Input.is_action_pressed("left"))
 #	position.x += x_dir * velocity * delta

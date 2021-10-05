@@ -41,12 +41,12 @@ func bye():
 	get_parent().remove_child(self)
 	queue_free()
 	
-func _on_Area2D_body_entered(body):
-	if body.is_in_group("player"):
+func _on_Area2D_body_entered(_body):
+	if _body.is_in_group("player"):
 		fire_timer.start()
 
-func _on_Area2D_body_exited(body):
-	if body.is_in_group("player"):
+func _on_Area2D_body_exited(_body):
+	if _body.is_in_group("player"):
 		fire_timer.stop()
 
 func _on_Sprite_animation_finished():
