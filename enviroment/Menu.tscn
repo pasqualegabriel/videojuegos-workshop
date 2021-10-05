@@ -12,10 +12,10 @@ script = ExtResource( 1 )
 
 [node name="GameOverRect" type="ColorRect" parent="."]
 visible = false
-margin_left = -5.0
-margin_top = -4.0
-margin_right = 1043.0
-margin_bottom = 612.0
+margin_left = -201.0
+margin_top = -128.0
+margin_right = 1245.0
+margin_bottom = 725.0
 color = Color( 0.0509804, 0.0509804, 0.054902, 1 )
 __meta__ = {
 "_edit_use_anchors_": false
